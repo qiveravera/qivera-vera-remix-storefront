@@ -14,7 +14,7 @@ export const links = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Jost:ital,wght@0,100..900;1,100..900&display=swap",
   },
 ];
 
@@ -33,6 +33,9 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <div className="announcement-bar">
+          <p>💎 Livraison Internationale &mdash; Authenticité Inviolable certifiée par Smart-Contract Web3</p>
+        </div>
         <Header />
         <main className="main-content">
           <Outlet />
@@ -54,10 +57,16 @@ function Header() {
           QIVERA<span>VERA</span>
         </Link>
         <nav className="nav">
-          <Link to="/collections/all">Collections</Link>
-          <Link to="/collections/nouveautes">Nouveaut&eacute;s</Link>
-          <Link to="/pages/about">Notre Histoire</Link>
-          <Link to="/cart" className="cart-link">Panier</Link>
+          <Link to="/collections/nouveautes">NOUVEAUTÉS</Link>
+          <Link to="/collections/homme">HOMME</Link>
+          <Link to="/collections/femme">FEMME</Link>
+          <Link to="/collections/leclipse-capsule-ete-2026" className="highlight-link">ÉCLIPSE 2026</Link>
+          <Link to="/pages/web3-nft">WEB3</Link>
+          <Link to="/pages/about">LE PROJET</Link>
+          <Link to="/cart" className="cart-link">
+            <span>PANIER</span>
+            <span className="cart-badge">0</span>
+          </Link>
         </nav>
       </div>
     </header>
@@ -70,23 +79,27 @@ function Footer() {
       <div className="footer-inner">
         <div className="footer-brand">
           <span className="logo">QIVERA<em>VERA</em></span>
-          <p>Marque fran&ccedil;aise hybride mode, lifestyle &amp; culture.</p>
+          <p>Maison de couture française éthique fusionnant le luxe streetwear durable et la traçabilité décentralisée sur Ethereum.</p>
+          <div className="blockchain-status">
+            <span className="dot-active"></span> Ethereum Node Online
+          </div>
         </div>
         <div className="footer-links">
-          <h4>Navigation</h4>
-          <Link to="/collections/all">Boutique</Link>
-          <Link to="/pages/about">Notre Histoire</Link>
-          <Link to="/pages/contact">Contact</Link>
+          <h4>Collections</h4>
+          <Link to="/collections/nouveautes">Nouveautés</Link>
+          <Link to="/collections/homme">Homme</Link>
+          <Link to="/collections/femme">Femme</Link>
+          <Link to="/collections/leclipse-capsule-ete-2026">Capsule Éclipse</Link>
         </div>
         <div className="footer-legal">
-          <h4>Informations</h4>
-          <Link to="/pages/mentions-legales">Mentions l&eacute;gales</Link>
-          <Link to="/pages/cgv">CGV</Link>
-          <Link to="/pages/confidentialite">Confidentialit&eacute;</Link>
+          <h4>Maison</h4>
+          <Link to="/pages/about">Le Projet</Link>
+          <Link to="/pages/tra&ccedil;abilite">Traçabilité Blockchain</Link>
+          <Link to="/pages/contact">Contact &amp; Support</Link>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} QIVERA VERA. Tous droits r&eacute;serv&eacute;s. Marque d&eacute;pos&eacute;e INPI.</p>
+        <p>&copy; {new Date().getFullYear()} QIVERA VERA. Tous droits réservés. Marque déposée INPI.</p>
       </div>
     </footer>
   );

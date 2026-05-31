@@ -45,12 +45,19 @@ export default function Index() {
                 {product.priceRange?.minVariantPrice?.amount}{" "}
                 {product.priceRange?.minVariantPrice?.currencyCode || "EUR"}
               </p>
-              <Link
-                to={`/products/${product.handle}`}
-                className="btn-primary"
-              >
-                Voir le produit
-              </Link>
+              <div className="product-actions">
+                <Link
+                  to={`/products/${product.handle}`}
+                  className="btn-primary"
+                >
+                  Découvrir l'Oeuvre
+                </Link>
+              </div>
+              <div className="web3-badge">
+                <span title="La traçabilité de cette pièce est assurée sur la blockchain via notre protocole n8n">
+                  🔗 <b>Digital Twin</b> : Certificat NFT Inclus
+                </span>
+              </div>
             </article>
           ))
         ) : (
