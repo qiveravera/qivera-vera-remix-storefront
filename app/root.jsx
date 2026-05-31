@@ -105,18 +105,35 @@ function Footer() {
   );
 }
 
-export function ErrorBoundary({ error }) {
+import { isRouteErrorResponse, useRouteError } from "@remix-run/react";
+
+export function ErrorBoundary() {
+  const error = useRouteError();
+  
+  let title = "Une erreur est survenue";
+  let message = error?.message || "Erreur inconnue";
+
+  if (isRouteErrorResponse(error)) {
+    if (error.status === 404) {
+      title = "Page Introuvable";
+      message = "Cette section est actuellement en cours de création ou n'existe pas encore. L'expérience QIVERA VERA se prépare.";
+    } else {
+      title = `Erreur ${error.status}`;
+      message = error.statusText;
+    }
+  }
+
   return (
     <html lang="fr">
       <head>
-        <title>Erreur — QIVERA VERA</title>
+        <title>{title} — QIVERA VERA</title>
         <Meta />
         <Links />
       </head>
       <body className="error-page">
         <div className="error-content">
-          <h1>Une erreur est survenue</h1>
-          <p>{error?.message || "Erreur inconnue"}</p>
+          <h1>{title}</h1>
+          <p>{message}</p>
           <Link to="/" className="btn-primary">Retour &agrave; l'accueil</Link>
         </div>
         <Scripts />
